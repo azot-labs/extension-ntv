@@ -1,0 +1,33 @@
+{
+  "name": "ntv",
+  "version": "0.0.2",
+  "homepage": "https://www.ntv.ru/",
+  "config": {
+    "title": "NTV",
+    "icon": "https://static.ntv.ru/static/images/logo.png"
+  },
+  "keywords": [
+    "TV Channels"
+  ],
+  "author": {
+    "name": "Azot",
+    "url": "https://azot.so/"
+  },
+  "contributors": [
+    {
+      "name": "Vitaly Gashkov",
+      "email": "vitalygashkov@vk.com",
+      "url": "https://github.com/vitalygashkov"
+    }
+  ],
+  "license": "MIT",
+  "main": "ntv.js",
+  "files": [
+    "ntv.js"
+  ],
+  "scripts": {},
+  "devDependencies": {
+    "@streamyx/api": "^0.2.10",
+    "@types/node": "^24.0.13"
+  }
+}
