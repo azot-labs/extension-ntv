@@ -1,10 +1,8 @@
 'use strict';
 
-const { defineExtension } = require('@streamyx/api');
+const { defineExtension } = require('azot');
 
 module.exports = defineExtension({
-  name: 'ntv',
-  tag: 'NTV',
   fetchContentMetadata: async (url) => {
     const pageResponse = await fetch(url);
     const pageBody = await pageResponse.text();
