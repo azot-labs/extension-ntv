@@ -3,11 +3,11 @@
   "version": "0.0.4",
   "homepage": "https://www.ntv.ru/",
   "config": {
-    "title": "NTV",
+    "title": "НТВ",
     "icon": "https://static.ntv.ru/static/images/logo.png"
   },
   "keywords": [
-    "TV Channels"
+    "tv-channels"
   ],
   "author": {
     "name": "Azot",
@@ -21,11 +21,14 @@
     }
   ],
   "license": "MIT",
-  "main": "ntv.js",
+  "main": "dist/ntv.js",
   "files": [
-    "ntv.js"
+    "dist"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev": "azt dev",
+    "build": "azt build"
+  },
   "devDependencies": {
     "@types/node": "^24.0.15",
     "azot": "^0.9.0"
