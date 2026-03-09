@@ -44,24 +44,26 @@ export default defineExtension({
     const getTagContent = (tagName) =>
       xmlBody.split(`<${tagName}>`)[1]?.split(`</${tagName}>`)[0]?.split(`DATA[`)[1]?.split(`]`)[0]?.trim();
 
+    const playbackLink = getTagContent('dash')|| getTagContent('hls');
     const fileLink = getTagContent('file') || getTagContent('video');
     const hqFileLink = getTagContent('hifile') || getTagContent('hd_video');
+    const finalLink = hqFileLink || playbackLink || fileLink;
     const title = xmlBody.split(`<embed_tag>`)[1]?.split(`</embed_tag>`)[0];
     const name = pageBody.split('"name":"')[1]?.split('"')[0];
     const episodeNumberString = name?.includes('серия') ? name.split('-')[0] : undefined;
     const episodeNumber = episodeNumberString ? parseInt(episodeNumberString) : undefined;
     const subtitlesRoute = xmlBody.split(`<subtitles>`)[1]?.split(`</subtitles>`)[0];
     const subtitlesUrl = `https://www.ntv.ru${subtitlesRoute}`;
-    const pathname = new URL(hqFileLink || fileLink).pathname;
+    const pathname = new URL(finalLink).pathname;
     const filename = pathname.substring(pathname.lastIndexOf('/') + 1).split('.')[0];
     if (subtitlesRoute) console.debug(`Subtitles: ${subtitlesUrl}`);
-    const subtitles = [{ url: subtitlesUrl, format: subtitlesUrl.split('.').pop(), language: 'ru' }];
+    const subtitles = subtitlesRoute ? [{ url: subtitlesUrl, format: subtitlesUrl.split('.').pop(), language: 'ru' }] : [];
     return [
       {
         title,
         seasonNumber: episodeNumber ? 1 : undefined,
         episodeNumber,
-        source: { url: hqFileLink || fileLink, subtitles },
+        source: { url: finalLink, subtitles },
       },
     ];
   },
