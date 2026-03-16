@@ -1,6 +1,6 @@
 {
   "name": "ntv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://www.ntv.ru/",
   "config": {
     "title": "НТВ",
@@ -21,7 +21,7 @@
     }
   ],
   "license": "MIT",
-  "main": "dist/ntv.js",
+  "main": "dist/ntv.cjs",
   "files": [
     "dist"
   ],
