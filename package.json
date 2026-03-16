@@ -1,6 +1,6 @@
 {
   "name": "ntv",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "homepage": "https://www.ntv.ru/",
   "config": {
     "title": "НТВ",
@@ -11,7 +11,7 @@
   ],
   "author": {
     "name": "Azot",
-    "url": "https://azot.so/"
+    "url": "https://azot.mov/"
   },
   "contributors": [
     {
@@ -30,8 +30,11 @@
     "build": "azt build"
   },
   "devDependencies": {
-    "@types/node": "^24.2.1",
-    "azot": "^0.9.2",
-    "typescript": "^5.9.2"
+    "@types/node": "^25.5.0",
+    "azot": "^5.0.0-alpha.18",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "azot": ">=4.3.38"
   }
 }
